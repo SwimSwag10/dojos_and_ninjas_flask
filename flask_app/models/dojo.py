@@ -25,7 +25,7 @@ class Dojo:
     def dojo_get_one(cls,data):
         query = "SELECT * FROM dojos WHERE dojos.id = %(id)s;"
         dojos_from_db = connectToMySQL('dojos_and_ninjas_schema').query_db(query,data)
-
+        print("^^^^^^^^", dojos_from_db)
         return cls(dojos_from_db[0])
 
     @classmethod

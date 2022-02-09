@@ -6,13 +6,17 @@ from flask_app.models import ninja, dojo
 
 @app.route('/create/ninja',methods=['POST'])
 def create():
+    print("************************", request.form)
+
     data = {
+        "dojo_id" : request.form['dojo_id'],
         "first_name":request.form['first_name'],
         "last_name":request.form['last_name'],
         "age":request.form['age'],
     }
     ninja.Ninja.ninja_save(data)
-    return redirect(f"/dojo/{dojo_id}
+    dojo_id = request.form['dojo_id']
+    return redirect(f'/dojo/{dojo_id}')
 
 
 

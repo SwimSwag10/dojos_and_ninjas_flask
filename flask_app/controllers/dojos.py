@@ -37,14 +37,14 @@ def dojos_edit_page(dojo_id):
     }
     return render_template("dojo.html", dojo = dojo.Dojo.dojo_get_one(data))
 
-# @app.route('/update/<int:dojo_id>', methods=['POST'])
-# def dojos_update(dojo_id):
-#     data = {
-#         'id': dojo_id,
-#         "name":request.form['name'],
-#     }
-#     dojo.Dojo.update(data)
-#     return redirect(f"/show/{dojo_id}")
+@app.route('/update/<int:dojo_id>', methods=['POST'])
+def dojos_update(dojo_id):
+    data = {
+        'id': dojo_id,
+        "name":request.form['name'],
+    }
+    dojo.Dojo.update(data)
+    return redirect(f"/dojo/{dojo_id}")
 
 # @app.route('/delete/<int:dojo_id>')
 # def dojos_delete(dojo_id):
